@@ -1,0 +1,12 @@
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\blazorfullstackapp\Shared\bin\Debug\net5.0\BlazorFullStackApp.Shared.deps.json
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\blazorfullstackapp\Shared\bin\Debug\net5.0\BlazorFullStackApp.Shared.dll
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\blazorfullstackapp\Shared\bin\Debug\net5.0\ref\BlazorFullStackApp.Shared.dll
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\blazorfullstackapp\Shared\bin\Debug\net5.0\BlazorFullStackApp.Shared.pdb
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\blazorfullstackapp\Shared\obj\Debug\net5.0\BlazorFullStackApp.Shared.csproj.AssemblyReference.cache
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\blazorfullstackapp\Shared\obj\Debug\net5.0\BlazorFullStackApp.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\blazorfullstackapp\Shared\obj\Debug\net5.0\BlazorFullStackApp.Shared.AssemblyInfoInputs.cache
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\blazorfullstackapp\Shared\obj\Debug\net5.0\BlazorFullStackApp.Shared.AssemblyInfo.cs
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\blazorfullstackapp\Shared\obj\Debug\net5.0\BlazorFullStackApp.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\blazorfullstackapp\Shared\obj\Debug\net5.0\BlazorFullStackApp.Shared.dll
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\blazorfullstackapp\Shared\obj\Debug\net5.0\ref\BlazorFullStackApp.Shared.dll
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\blazorfullstackapp\Shared\obj\Debug\net5.0\BlazorFullStackApp.Shared.pdb

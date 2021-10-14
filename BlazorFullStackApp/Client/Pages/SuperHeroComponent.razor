@@ -1,0 +1,52 @@
+﻿@page "/superheroes"
+@inject ISuperHeroService SuperHeroService
+@inject NavigationManager NavigationManager
+
+
+<h3>SuperHeroComponent</h3>
+
+
+@if (SuperHeroService.Heroes.Count == 0)
+{
+    <span>Super heroes is loading</span>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Hero Name</th>
+                <th>Comic</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var hero in SuperHeroService.Heroes)
+            {
+                <tr>
+                    <th>@hero.FirstName</th>
+                    <th>@hero.LastName</th>
+                    <th>@hero.HeroName</th>
+                    <th>@hero.Comic.Data</th>
+                    <th>
+                        <button class="btn btn-primary" @onclick="(() => ShowHero(hero.Id))">Show</button>
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await SuperHeroService.GetHeroes();
+    }
+
+    void ShowHero(int id)
+    {
+        NavigationManager.NavigateTo($"superhero/{id}");
+    }
+}
