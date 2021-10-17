@@ -118,13 +118,19 @@ using BlazorFullStackApp.Shared;
     {
         if (hero.Id == -1)
         {
-            hero.Id = SuperHeroService.Heroes.Max(x => x.Id) + 1;
+            if (SuperHeroService.Heroes.Count == 0)
+                hero.Id = 0;
+            else
+                hero.Id = SuperHeroService.Heroes.Max(x => x.Id) + 1;
             await SuperHeroService.PostSuperHero(hero);
         }
         else
             await SuperHeroService.PutSuperHero(hero, hero.Id);
 
         hero.Id = -1;
+        hero.FirstName = "";
+        hero.LastName = "";
+        hero.HeroName = "";
         SuperHeroService.Shit();
     }
 
