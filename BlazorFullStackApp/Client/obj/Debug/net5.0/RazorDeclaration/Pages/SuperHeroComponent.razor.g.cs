@@ -105,7 +105,7 @@ using BlazorFullStackApp.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 52 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\SuperHeroComponent.razor"
+#line 55 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\SuperHeroComponent.razor"
        
     SuperHero heroToEdit = new SuperHero { Id = -1 };
 
