@@ -97,7 +97,7 @@ using BlazorFullStackApp.Shared;
 #line hidden
 #nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/superheroes")]
-    public partial class SuperHeroComponent : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class SuperHeroComponent : Microsoft.AspNetCore.Components.ComponentBase, IDisposable
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -105,16 +105,35 @@ using BlazorFullStackApp.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 42 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\SuperHeroComponent.razor"
+#line 52 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\SuperHeroComponent.razor"
        
+    SuperHero heroToEdit = new SuperHero { Id = -1 };
+
     protected override async Task OnInitializedAsync()
     {
+        SuperHeroService.OnChange += StateHasChanged;
+        await SuperHeroService.GetComics();
         await SuperHeroService.GetHeroes();
     }
 
     void ShowHero(int id)
     {
         NavigationManager.NavigateTo($"superhero/{id}");
+    }
+
+    void EditHero(SuperHero hero)
+    {
+        heroToEdit = hero;
+    }
+
+    async void DeleteHero(int id)
+    {
+        await SuperHeroService.DeleteHero(id);
+    }
+
+    public void Dispose()
+    {
+        SuperHeroService.OnChange -= StateHasChanged;
     }
 
 #line default

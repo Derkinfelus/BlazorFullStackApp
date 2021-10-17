@@ -11,6 +11,9 @@ namespace BlazorFullStackApp.Client.Services
     public class SuperHeroService : ISuperHeroService
     {
         private readonly HttpClient _HttpClient;
+
+        public event Action OnChange;
+
         public List<SuperHero> Heroes { get; set; } = new List<SuperHero>();
         public List<Comic> Comics { get; set; } = new List<Comic>();
 
@@ -30,6 +33,32 @@ namespace BlazorFullStackApp.Client.Services
         public async Task<SuperHero> GetSingleHero(int id)
         {
             return await _HttpClient.GetFromJsonAsync<SuperHero>($"api/superhero/{id}");
+        }
+
+        public async Task PostSuperHero(SuperHero hero)
+        {
+            var result = await _HttpClient.PostAsJsonAsync($"api/superhero", hero);
+            Heroes = await result.Content.ReadFromJsonAsync<List<SuperHero>>();
+            OnChange.Invoke();
+        }
+
+        public async Task PutSuperHero(SuperHero hero, int id)
+        {
+            var result = await _HttpClient.PutAsJsonAsync($"api/superhero/{id}", hero);
+            Heroes = await result.Content.ReadFromJsonAsync<List<SuperHero>>();
+            OnChange.Invoke();
+        }
+
+        public async Task DeleteHero(int id)
+        {
+            var result = await _HttpClient.DeleteAsync($"api/superhero/{id}");
+            Heroes = await result.Content.ReadFromJsonAsync<List<SuperHero>>();
+            OnChange.Invoke();
+        }
+
+        public void Shit()
+        {
+            OnChange.Invoke();
         }
     }
 }

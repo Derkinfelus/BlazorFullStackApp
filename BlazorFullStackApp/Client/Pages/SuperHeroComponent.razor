@@ -1,6 +1,7 @@
 ﻿@page "/superheroes"
 @inject ISuperHeroService SuperHeroService
 @inject NavigationManager NavigationManager
+@implements IDisposable
 
 
 <h3>SuperHeroComponent</h3>
@@ -25,13 +26,19 @@ else
             @foreach (var hero in SuperHeroService.Heroes)
             {
                 <tr>
-                    <th>@hero.FirstName</th>
-                    <th>@hero.LastName</th>
-                    <th>@hero.HeroName</th>
-                    <th>@hero.Comic.Data</th>
-                    <th>
+                    <td>@hero.FirstName</td>
+                    <td>@hero.LastName</td>
+                    <td>@hero.HeroName</td>
+                    <td>@SuperHeroService.Comics.FirstOrDefault(x => x.Id == hero.ComicId).Data</td>
+                    <td>
                         <button class="btn btn-primary" @onclick="(() => ShowHero(hero.Id))">Show</button>
-                    </th>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="(() => EditHero(hero))">Edit</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="(() => DeleteHero(hero.Id))">Delete</button>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -39,14 +46,36 @@ else
 }
 
 
+<HeroManagementComponent hero="heroToEdit"></HeroManagementComponent>
+
+
 @code {
+    SuperHero heroToEdit = new SuperHero { Id = -1 };
+
     protected override async Task OnInitializedAsync()
     {
+        SuperHeroService.OnChange += StateHasChanged;
+        await SuperHeroService.GetComics();
         await SuperHeroService.GetHeroes();
     }
 
     void ShowHero(int id)
     {
         NavigationManager.NavigateTo($"superhero/{id}");
+    }
+
+    void EditHero(SuperHero hero)
+    {
+        heroToEdit = hero;
+    }
+
+    async void DeleteHero(int id)
+    {
+        await SuperHeroService.DeleteHero(id);
+    }
+
+    public void Dispose()
+    {
+        SuperHeroService.OnChange -= StateHasChanged;
     }
 }

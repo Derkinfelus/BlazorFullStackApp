@@ -638,3 +638,5 @@ C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj
 C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\build-gz\G+c0oedQ.gz
 C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\RazorDeclaration\Pages\SingleSuperHeroComponent.razor.g.cs
 C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\Razor\Pages\SingleSuperHeroComponent.razor.g.cs
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\RazorDeclaration\Shared\HeroManagementComponent.razor.g.cs
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\Razor\Shared\HeroManagementComponent.razor.g.cs

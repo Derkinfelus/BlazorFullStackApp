@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VkX/ndlZo7E3skaYQwbiYSvXAdzIBIJn9FNO8p4woybwfBnr9NVj2iLSp6lL3KHKY+lH65FmDdkmBQiVeR5Q0A==",
+  "dgSpecHash": "kpf1nHX6ALszX6YtO3ZR+gENIaH7uh7k+sCGKUwFPUneHyXk61ToeYYXjq1ShmjjO6ozkcABCCjmtlBLvf7obA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Derkinfel\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Server\\BlazorFullStackApp.Server.csproj",
+  "projectFilePath": "C:\\Users\\Derkinfel\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\server\\BlazorFullStackApp.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Derkinfel\\.nuget\\packages\\microsoft.aspnetcore.authorization\\5.0.9\\microsoft.aspnetcore.authorization.5.0.9.nupkg.sha512",
     "C:\\Users\\Derkinfel\\.nuget\\packages\\microsoft.aspnetcore.components\\5.0.9\\microsoft.aspnetcore.components.5.0.9.nupkg.sha512",
