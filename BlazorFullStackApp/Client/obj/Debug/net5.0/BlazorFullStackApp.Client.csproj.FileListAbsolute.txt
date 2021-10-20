@@ -640,3 +640,7 @@ C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj
 C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\Razor\Pages\SingleSuperHeroComponent.razor.g.cs
 C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\RazorDeclaration\Shared\HeroManagementComponent.razor.g.cs
 C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\Razor\Shared\HeroManagementComponent.razor.g.cs
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\RazorDeclaration\Pages\TwoDimentionalListComponent.razor.g.cs
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\Razor\Pages\TwoDimentionalListComponent.razor.g.cs
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\RazorDeclaration\Shared\ListManagementComponent.razor.g.cs
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\Razor\Shared\ListManagementComponent.razor.g.cs

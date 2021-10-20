@@ -96,7 +96,7 @@ using BlazorFullStackApp.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class ListManagementComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -104,20 +104,25 @@ using BlazorFullStackApp.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 38 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Shared\NavMenu.razor"
+#line 24 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Shared\ListManagementComponent.razor"
        
-    private bool collapseNavMenu = true;
+    [Parameter]
+    public ElementTransporter transporterToEdit { get; set; } = new ElementTransporter { Element = new ListElement() };
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
+    protected override async Task OnInitializedAsync()
     {
-        collapseNavMenu = !collapseNavMenu;
+
+    }
+
+    async void OnEditFormSubmit()
+    {
+        await TwoDimentionalListService.PostElement(transporterToEdit);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ITwoDimentionalListService TwoDimentionalListService { get; set; }
     }
 }
 #pragma warning restore 1591

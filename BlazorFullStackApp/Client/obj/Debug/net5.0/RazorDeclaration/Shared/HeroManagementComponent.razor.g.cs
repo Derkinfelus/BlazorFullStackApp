@@ -127,10 +127,7 @@ using BlazorFullStackApp.Shared;
         else
             await SuperHeroService.PutSuperHero(hero, hero.Id);
 
-        hero.Id = -1;
-        hero.FirstName = "";
-        hero.LastName = "";
-        hero.HeroName = "";
+
         SuperHeroService.Shit();
     }
 

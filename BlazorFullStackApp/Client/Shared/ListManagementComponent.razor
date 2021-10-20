@@ -1,0 +1,37 @@
+﻿@inject ITwoDimentionalListService TwoDimentionalListService
+
+
+<h3>ListManagementComponent</h3>
+
+
+<EditForm Model="transporterToEdit" OnSubmit="OnEditFormSubmit">
+    <div class="form-group">
+        <label>Type</label>
+        <InputText @bind-Value="transporterToEdit.Type" class="form-control">Type</InputText>
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <InputText @bind-Value="transporterToEdit.Element.Name" class="form-control">Name</InputText>
+    </div>
+    <div class="form-group">
+        <label>Data</label>
+        <InputNumber @bind-Value="transporterToEdit.Element.Data" class="form-control">Data</InputNumber>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</EditForm>
+
+
+@code {
+    [Parameter]
+    public ElementTransporter transporterToEdit { get; set; } = new ElementTransporter { Element = new ListElement() };
+
+    protected override async Task OnInitializedAsync()
+    {
+
+    }
+
+    async void OnEditFormSubmit()
+    {
+        await TwoDimentionalListService.PostElement(transporterToEdit);
+    }
+}

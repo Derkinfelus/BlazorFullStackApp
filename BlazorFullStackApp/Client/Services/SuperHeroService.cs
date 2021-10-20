@@ -39,13 +39,16 @@ namespace BlazorFullStackApp.Client.Services
         {
             var result = await _HttpClient.PostAsJsonAsync($"api/superhero", hero);
             Heroes = await result.Content.ReadFromJsonAsync<List<SuperHero>>();
-            OnChange.Invoke();
         }
 
         public async Task PutSuperHero(SuperHero hero, int id)
         {
             var result = await _HttpClient.PutAsJsonAsync($"api/superhero/{id}", hero);
             Heroes = await result.Content.ReadFromJsonAsync<List<SuperHero>>();
+            hero.Id = -1;
+            hero.FirstName = "";
+            hero.LastName = "";
+            hero.HeroName = "";
             OnChange.Invoke();
         }
 
@@ -53,7 +56,6 @@ namespace BlazorFullStackApp.Client.Services
         {
             var result = await _HttpClient.DeleteAsync($"api/superhero/{id}");
             Heroes = await result.Content.ReadFromJsonAsync<List<SuperHero>>();
-            OnChange.Invoke();
         }
 
         public void Shit()

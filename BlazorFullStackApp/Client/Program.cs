@@ -22,6 +22,8 @@ namespace BlazorFullStackApp.Client
 
             builder.Services.AddScoped<ISuperHeroService, SuperHeroService>();
 
+            builder.Services.AddScoped<ITwoDimentionalListService, TwoDimentionalListService>();
+
             await builder.Build().RunAsync();
         }
     }

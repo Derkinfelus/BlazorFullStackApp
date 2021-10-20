@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BlazorFullStackApp.Client.Shared
+namespace BlazorFullStackApp.Client.Pages
 {
     #line hidden
     using System;
@@ -96,7 +96,8 @@ using BlazorFullStackApp.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/list")]
+    public partial class TwoDimentionalListComponent : Microsoft.AspNetCore.Components.ComponentBase, IDisposable
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -104,20 +105,25 @@ using BlazorFullStackApp.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 38 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Shared\NavMenu.razor"
+#line 29 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\TwoDimentionalListComponent.razor"
        
-    private bool collapseNavMenu = true;
+    ElementTransporter transporter = new ElementTransporter { Element = new ListElement() };
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
+    protected override async Task OnInitializedAsync()
     {
-        collapseNavMenu = !collapseNavMenu;
+        TwoDimentionalListService.OnChange += StateHasChanged;
+        await TwoDimentionalListService.GetList();
+    }
+
+    public void Dispose()
+    {
+        TwoDimentionalListService.OnChange -= StateHasChanged;
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ITwoDimentionalListService TwoDimentionalListService { get; set; }
     }
 }
 #pragma warning restore 1591

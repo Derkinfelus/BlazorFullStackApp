@@ -1,0 +1,42 @@
+﻿@page "/list"
+@inject ITwoDimentionalListService TwoDimentionalListService
+@implements IDisposable
+
+
+<h3>TwoDimentionalListComponent</h3>
+<ul>
+    @foreach (var i in TwoDimentionalListService.ListOfElements)
+    {
+        <li>
+            <h3>@i.Key</h3>
+            <ul>
+                @foreach (var j in i.Value)
+                {
+                    <li>
+                        <p>Name: @j.Name, Data: @j.Data</p>
+                    </li>
+                }
+            </ul>
+        </li>   
+
+    }
+</ul>
+
+
+<ListManagementComponent transporterToEdit="transporter"></ListManagementComponent>
+
+
+@code {
+    ElementTransporter transporter = new ElementTransporter { Element = new ListElement() };
+
+    protected override async Task OnInitializedAsync()
+    {
+        TwoDimentionalListService.OnChange += StateHasChanged;
+        await TwoDimentionalListService.GetList();
+    }
+
+    public void Dispose()
+    {
+        TwoDimentionalListService.OnChange -= StateHasChanged;
+    }
+}
