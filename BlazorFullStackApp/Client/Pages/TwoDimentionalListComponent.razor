@@ -17,26 +17,25 @@
                     </li>
                 }
             </ul>
-        </li>   
-
+        </li>
     }
 </ul>
 
 
 <ListManagementComponent transporterToEdit="transporter"></ListManagementComponent>
 
+    @code {
+        ElementTransporter transporter = new ElementTransporter { Element = new ListElement() };
+        bool opened { get; set; } = new bool();
 
-@code {
-    ElementTransporter transporter = new ElementTransporter { Element = new ListElement() };
+        protected override async Task OnInitializedAsync()
+        {
+            TwoDimentionalListService.OnChange += StateHasChanged;
+            await TwoDimentionalListService.GetList();
+        }
 
-    protected override async Task OnInitializedAsync()
-    {
-        TwoDimentionalListService.OnChange += StateHasChanged;
-        await TwoDimentionalListService.GetList();
+        public void Dispose()
+        {
+            TwoDimentionalListService.OnChange -= StateHasChanged;
+        }
     }
-
-    public void Dispose()
-    {
-        TwoDimentionalListService.OnChange -= StateHasChanged;
-    }
-}

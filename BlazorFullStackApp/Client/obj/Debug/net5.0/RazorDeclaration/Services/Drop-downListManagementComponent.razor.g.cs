@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BlazorFullStackApp.Client.Pages
+namespace BlazorFullStackApp.Client.Services
 {
     #line hidden
     using System;
@@ -96,36 +96,13 @@ using BlazorFullStackApp.Shared;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/list")]
-    public partial class TwoDimentionalListComponent : Microsoft.AspNetCore.Components.ComponentBase, IDisposable
+    public partial class Drop_downListManagementComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 27 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\TwoDimentionalListComponent.razor"
-           
-        ElementTransporter transporter = new ElementTransporter { Element = new ListElement() };
-        bool opened { get; set; } = new bool();
-
-        protected override async Task OnInitializedAsync()
-        {
-            TwoDimentionalListService.OnChange += StateHasChanged;
-            await TwoDimentionalListService.GetList();
-        }
-
-        public void Dispose()
-        {
-            TwoDimentionalListService.OnChange -= StateHasChanged;
-        }
-    
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ITwoDimentionalListService TwoDimentionalListService { get; set; }
     }
 }
 #pragma warning restore 1591

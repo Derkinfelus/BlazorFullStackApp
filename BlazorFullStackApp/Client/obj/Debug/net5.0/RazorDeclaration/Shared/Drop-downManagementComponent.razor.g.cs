@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BlazorFullStackApp.Client.Pages
+namespace BlazorFullStackApp.Client.Shared
 {
     #line hidden
     using System;
@@ -96,8 +96,7 @@ using BlazorFullStackApp.Shared;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/list")]
-    public partial class TwoDimentionalListComponent : Microsoft.AspNetCore.Components.ComponentBase, IDisposable
+    public partial class Drop_downManagementComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -105,27 +104,20 @@ using BlazorFullStackApp.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 27 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\TwoDimentionalListComponent.razor"
-           
-        ElementTransporter transporter = new ElementTransporter { Element = new ListElement() };
-        bool opened { get; set; } = new bool();
+#line 24 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Shared\Drop-downManagementComponent.razor"
+       
+    [Parameter]
+    public ElementTransporter transporterToEdit { get; set; } = new ElementTransporter { Element = new ListElement() };
 
-        protected override async Task OnInitializedAsync()
-        {
-            TwoDimentionalListService.OnChange += StateHasChanged;
-            await TwoDimentionalListService.GetList();
-        }
-
-        public void Dispose()
-        {
-            TwoDimentionalListService.OnChange -= StateHasChanged;
-        }
-    
+    async void OnEditFormSubmit()
+    {
+        await Drop_downListService.PostElement(transporterToEdit);
+    }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ITwoDimentionalListService TwoDimentionalListService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDrop_downListService Drop_downListService { get; set; }
     }
 }
 #pragma warning restore 1591

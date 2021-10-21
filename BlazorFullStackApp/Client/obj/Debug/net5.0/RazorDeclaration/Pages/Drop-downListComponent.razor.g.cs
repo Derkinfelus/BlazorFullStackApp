@@ -96,8 +96,8 @@ using BlazorFullStackApp.Shared;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/list")]
-    public partial class TwoDimentionalListComponent : Microsoft.AspNetCore.Components.ComponentBase, IDisposable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/drop-down list")]
+    public partial class Drop_downListComponent : Microsoft.AspNetCore.Components.ComponentBase, IDisposable
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -105,27 +105,34 @@ using BlazorFullStackApp.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 27 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\TwoDimentionalListComponent.razor"
-           
-        ElementTransporter transporter = new ElementTransporter { Element = new ListElement() };
-        bool opened { get; set; } = new bool();
+#line 31 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\Drop-downListComponent.razor"
+       
+    ElementTransporter transporter = new ElementTransporter { Element = new ListElement() };
+    string btnData;
 
-        protected override async Task OnInitializedAsync()
-        {
-            TwoDimentionalListService.OnChange += StateHasChanged;
-            await TwoDimentionalListService.GetList();
-        }
+    protected override async Task OnParametersSetAsync()
+    {
+        Drop_downListService.OnChange += StateHasChanged;
+        await Drop_downListService.GetList();
+    }
 
-        public void Dispose()
-        {
-            TwoDimentionalListService.OnChange -= StateHasChanged;
-        }
-    
+    public string ListStatus(bool isOpen)
+    {
+        if (isOpen)
+            return "Hide";
+        else
+            return "Show";
+    }
+
+    public void Dispose()
+    {
+        Drop_downListService.OnChange -= StateHasChanged;
+    }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ITwoDimentionalListService TwoDimentionalListService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDrop_downListService Drop_downListService { get; set; }
     }
 }
 #pragma warning restore 1591

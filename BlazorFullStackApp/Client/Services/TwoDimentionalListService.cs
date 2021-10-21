@@ -24,6 +24,9 @@ namespace BlazorFullStackApp.Client.Services
         {
             var result = await _HttpClient.PostAsJsonAsync($"api/TwoDimantionalList", transporter);
             ListOfElements = await result.Content.ReadFromJsonAsync<Dictionary<string, List<ListElement>>>();
+            transporter.Type = "";
+            transporter.Element.Name = "";
+            transporter.Element.Data = 0;
             OnChange.Invoke();
         }
 

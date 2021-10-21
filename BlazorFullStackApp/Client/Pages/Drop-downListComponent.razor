@@ -1,0 +1,53 @@
+﻿@page "/drop-down list"
+@inject IDrop_downListService Drop_downListService
+@implements IDisposable
+
+
+<h3>TwoDimentionalListComponent</h3>
+<ul>
+    @foreach (var i in Drop_downListService.ListOfElements)
+    {
+        <li>
+            <span>
+                <button class="btn-primary" @onclick="(() => i.Value.Opened = !i.Value.Opened)">@ListStatus(i.Value.Opened)</button>
+                <label>@i.Key</label>
+            </span>
+            <ul>
+                @if (i.Value.Opened)
+                    @foreach (var j in i.Value.ListElements)
+                    {
+                        <li>
+                            <p>Name: @j.Name, Data: @j.Data</p>
+                        </li>
+                    }
+            </ul>
+        </li>
+    }
+</ul>
+
+
+<Drop_downManagementComponent transporterToEdit="transporter"></Drop_downManagementComponent>
+
+@code {
+    ElementTransporter transporter = new ElementTransporter { Element = new ListElement() };
+    string btnData;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        Drop_downListService.OnChange += StateHasChanged;
+        await Drop_downListService.GetList();
+    }
+
+    public string ListStatus(bool isOpen)
+    {
+        if (isOpen)
+            return "Hide";
+        else
+            return "Show";
+    }
+
+    public void Dispose()
+    {
+        Drop_downListService.OnChange -= StateHasChanged;
+    }
+}

@@ -24,6 +24,8 @@ namespace BlazorFullStackApp.Client
 
             builder.Services.AddScoped<ITwoDimentionalListService, TwoDimentionalListService>();
 
+            builder.Services.AddScoped<IDrop_downListService, Drop_downListService>();
+
             await builder.Build().RunAsync();
         }
     }
