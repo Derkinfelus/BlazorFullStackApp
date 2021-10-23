@@ -12,11 +12,10 @@ namespace BlazorFullStackApp.Server.Controllers
     [ApiController]
     public class Drop_downListController : ControllerBase
     {
-        
         static Dictionary<string, List<ListElement>> ListOfElements = new Dictionary<string, List<ListElement>>
         {
             { "First Type", new List<ListElement> { new ListElement { Name = "First Element", Data = 1 }, new ListElement { Name = "Second Element", Data = 2 } } },
-            { "Second Type", new List<ListElement> { new ListElement { Name = "Third Element", Data = 1 }, new ListElement { Name = "Fourth Element", Data = 2 } } }
+            { "Second Type", new List<ListElement> { new ListElement { Name = "Third Element", Data = 3 }, new ListElement { Name = "Fourth Element", Data = 4 } } }
         };
 
         [HttpGet]

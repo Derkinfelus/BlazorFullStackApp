@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kpf1nHX6ALszX6YtO3ZR+gENIaH7uh7k+sCGKUwFPUneHyXk61ToeYYXjq1ShmjjO6ozkcABCCjmtlBLvf7obA==",
+  "dgSpecHash": "G9bMqmCt7zcl27rTZggYdwxlDwSWdbBy6BGgByLpA1cyUmu5DEKXQAl8wPcV/m06oMulUPaoDSJQgTAf0L3K3w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Derkinfel\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\server\\BlazorFullStackApp.Server.csproj",
   "expectedPackageFiles": [
