@@ -652,3 +652,5 @@ C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj
 C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\Razor\Pages\MultiDimentionalListComponent.razor.g.cs
 C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\Razor\Shared\MultiDimentionalListManagementComponent.razor.g.cs
 C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\BlazorFullStackApp.Client.csproj.CopyComplete
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\RazorDeclaration\Pages\MultiDimensionalListComponent.razor.g.cs
+C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\obj\Debug\net5.0\RazorDeclaration\Shared\MultiDimensionalListManagementComponent.razor.g.cs

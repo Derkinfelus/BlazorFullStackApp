@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace BlazorFullStackApp.Client.Services
 {
-    public class TwoDimentionalListService : ITwoDimentionalListService
+    public class TwodimensionalListService : ITwodimensionalListService
     {
         public Dictionary<string, List<ListElement>> ListOfElements { get; set; } = new Dictionary<string, List<ListElement>>();
         private readonly HttpClient _HttpClient;
 
         public event Action OnChange;
 
-        public TwoDimentionalListService(HttpClient httpClient)
+        public TwodimensionalListService(HttpClient httpClient)
         {
             _HttpClient = httpClient;
         }

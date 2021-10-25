@@ -1,0 +1,79 @@
+﻿@page "/MultiDimensionalList"
+@inject IMultiDimensionalListService MultiDimensionalListService
+@implements IDisposable
+@using Microsoft.AspNetCore.Components.Rendering
+
+
+
+<h3>TwodimensionalListComponent</h3>
+
+
+@if (MultiDimensionalListService.ListOfElements.Count > 0)
+{
+    RecoursiveListRender(__builder, MultiDimensionalListService.ListOfElements);
+}
+
+
+<MultiDimensionalListManagementComponent transporterToEdit="transporter" id="id"></MultiDimensionalListManagementComponent>
+
+
+@code {
+    OpenableMultiDimensionalList transporter = new OpenableMultiDimensionalList();
+    int id = -1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        MultiDimensionalListService.OnChange += StateHasChanged;
+        if (MultiDimensionalListService.ListOfElements.Count == 0)
+            await MultiDimensionalListService.GetList();
+    }
+
+
+    void RecoursiveListRender(RenderTreeBuilder __builder, List<OpenableMultiDimensionalList> lowerDimensionList)
+    {
+        <ul>
+            @foreach (var i in lowerDimensionList)
+            {
+                <li>
+                    <span>
+                        @if (i.LowerDimensionList.Count != 0)
+                        {
+                            <button @onclick="(() => i.IsOpen = !i.IsOpen)" class="btn btn-primary">@ListStatus(i.IsOpen)</button>
+                            <label>@i.Name</label>
+                        }
+                        else
+                        {
+                            <label>@i.Name: @i.Data</label>
+                        }
+                        <button @onclick="(() => transporter = i)" class="btn btn-primary btn-dark">Edit</button>
+                        <button @onclick="(() => transporter = new OpenableMultiDimensionalList { Id = -1 })">Add new element</button>
+                    </span>
+                    @if (i.IsOpen)
+                    {
+                        RecoursiveListRender(__builder, i.LowerDimensionList);
+                    }
+                </li>
+            }
+        </ul>
+    }
+
+
+    public string ListStatus(bool isOpen)
+    {
+        if (isOpen)
+            return "Hide";
+        else
+            return "Show";
+    }
+
+
+    public void AddElement(OpenableMultiDimensionalList elem)
+    {
+    }
+
+
+    public void Dispose()
+    {
+        MultiDimensionalListService.OnChange -= StateHasChanged;
+    }
+}

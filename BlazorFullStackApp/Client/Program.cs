@@ -22,11 +22,11 @@ namespace BlazorFullStackApp.Client
 
             builder.Services.AddScoped<ISuperHeroService, SuperHeroService>();
 
-            builder.Services.AddScoped<ITwoDimentionalListService, TwoDimentionalListService>();
+            builder.Services.AddScoped<ITwodimensionalListService, TwodimensionalListService>();
 
             builder.Services.AddScoped<IDrop_downListService, Drop_downListService>();
 
-            builder.Services.AddScoped<IMultiDimentionalListService, MultiDimentionalListService>();
+            builder.Services.AddScoped<IMultiDimensionalListService, MultiDimensionalListService>();
 
             await builder.Build().RunAsync();
         }

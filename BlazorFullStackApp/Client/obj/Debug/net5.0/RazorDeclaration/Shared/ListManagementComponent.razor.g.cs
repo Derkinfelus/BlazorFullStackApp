@@ -116,13 +116,13 @@ using BlazorFullStackApp.Shared;
 
     async void OnEditFormSubmit()
     {
-        await TwoDimentionalListService.PostElement(transporterToEdit);
+        await TwodimensionalListService.PostElement(transporterToEdit);
     }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ITwoDimentionalListService TwoDimentionalListService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ITwodimensionalListService TwodimensionalListService { get; set; }
     }
 }
 #pragma warning restore 1591

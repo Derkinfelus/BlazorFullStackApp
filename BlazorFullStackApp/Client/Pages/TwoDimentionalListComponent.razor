@@ -1,11 +1,11 @@
 ﻿@page "/list"
-@inject ITwoDimentionalListService TwoDimentionalListService
+@inject ITwodimensionalListService TwodimensionalListService
 @implements IDisposable
 
 
-<h3>TwoDimentionalListComponent</h3>
+<h3>TwodimensionalListComponent</h3>
 <ul>
-    @foreach (var i in TwoDimentionalListService.ListOfElements)
+    @foreach (var i in TwodimensionalListService.ListOfElements)
     {
         <li>
             <h3>@i.Key</h3>
@@ -30,12 +30,12 @@
 
         protected override async Task OnInitializedAsync()
         {
-            TwoDimentionalListService.OnChange += StateHasChanged;
-            await TwoDimentionalListService.GetList();
+            TwodimensionalListService.OnChange += StateHasChanged;
+            await TwodimensionalListService.GetList();
         }
 
         public void Dispose()
         {
-            TwoDimentionalListService.OnChange -= StateHasChanged;
+            TwodimensionalListService.OnChange -= StateHasChanged;
         }
     }

@@ -112,20 +112,20 @@ using BlazorFullStackApp.Shared;
 
         protected override async Task OnInitializedAsync()
         {
-            TwoDimentionalListService.OnChange += StateHasChanged;
-            await TwoDimentionalListService.GetList();
+            TwodimensionalListService.OnChange += StateHasChanged;
+            await TwodimensionalListService.GetList();
         }
 
         public void Dispose()
         {
-            TwoDimentionalListService.OnChange -= StateHasChanged;
+            TwodimensionalListService.OnChange -= StateHasChanged;
         }
     
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ITwoDimentionalListService TwoDimentionalListService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ITwodimensionalListService TwodimensionalListService { get; set; }
     }
 }
 #pragma warning restore 1591

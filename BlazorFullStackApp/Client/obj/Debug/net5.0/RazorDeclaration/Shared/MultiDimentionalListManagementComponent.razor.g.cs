@@ -104,16 +104,19 @@ using BlazorFullStackApp.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 24 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Shared\MultiDimentionalListManagementComponent.razor"
+#line 27 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Shared\MultiDimentionalListManagementComponent.razor"
        
     [Parameter]
-    public MultiDimentionalList elementToEdit { get; set; } = new MultiDimentionalList();
+    public OpenableMultiDimensionalList transporterToEdit { get; set; } = new OpenableMultiDimensionalList();
     [Parameter]
     public int id { get; set; } = new int();
 
     async void OnEditFormSubmit()
     {
-        await MultiDimentionalListService.PostElement(id, elementToEdit)
+        if (transporterToEdit.Id == -1)
+            await MultiDimentionalListService.PostElement(id, transporterToEdit);
+        else
+
     }
 
 #line default

@@ -97,14 +97,14 @@ using BlazorFullStackApp.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimentionalListComponent.razor"
+#line 4 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
 using Microsoft.AspNetCore.Components.Rendering;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/multidimentionallist")]
-    public partial class MultiDimentionalListComponent : Microsoft.AspNetCore.Components.ComponentBase, IDisposable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/MultiDimensionalList")]
+    public partial class MultiDimensionalListComponent : Microsoft.AspNetCore.Components.ComponentBase, IDisposable
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,20 +112,20 @@ using Microsoft.AspNetCore.Components.Rendering;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 20 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimentionalListComponent.razor"
+#line 20 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
        
     OpenableMultiDimensionalList transporter = new OpenableMultiDimensionalList();
     int id = -1;
 
     protected override async Task OnInitializedAsync()
     {
-        MultiDimentionalListService.OnChange += StateHasChanged;
-        if (MultiDimentionalListService.ListOfElements.Count == 0)
-            await MultiDimentionalListService.GetList();
+        MultiDimensionalListService.OnChange += StateHasChanged;
+        if (MultiDimensionalListService.ListOfElements.Count == 0)
+            await MultiDimensionalListService.GetList();
     }
 
 
-    void RecoursiveListRender(RenderTreeBuilder __builder, List<OpenableMultiDimensionalList> lowerDimentionList)
+    void RecoursiveListRender(RenderTreeBuilder __builder, List<OpenableMultiDimensionalList> lowerDimensionList)
     {
 
 #line default
@@ -135,8 +135,8 @@ using Microsoft.AspNetCore.Components.Rendering;
         __builder.OpenElement(1, "ul");
         __builder.AddMarkupContent(2, "\r\n");
 #nullable restore
-#line 35 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimentionalListComponent.razor"
-             foreach (var i in lowerDimentionList)
+#line 35 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
+             foreach (var i in lowerDimensionList)
             {
 
 #line default
@@ -148,8 +148,8 @@ using Microsoft.AspNetCore.Components.Rendering;
         __builder.OpenElement(6, "span");
         __builder.AddMarkupContent(7, "\r\n");
 #nullable restore
-#line 39 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimentionalListComponent.razor"
-                         if (i.LowerDimentionList.Count != 0)
+#line 39 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
+                         if (i.LowerDimensionList.Count != 0)
                         {
 
 #line default
@@ -161,7 +161,7 @@ using Microsoft.AspNetCore.Components.Rendering;
         __builder.AddAttribute(11, "class", "btn btn-primary");
         __builder.AddContent(12, 
 #nullable restore
-#line 41 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimentionalListComponent.razor"
+#line 41 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
                                                                                                      ListStatus(i.IsOpen)
 
 #line default
@@ -173,7 +173,7 @@ using Microsoft.AspNetCore.Components.Rendering;
         __builder.OpenElement(14, "label");
         __builder.AddContent(15, 
 #nullable restore
-#line 42 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimentionalListComponent.razor"
+#line 42 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
                                     i.Name
 
 #line default
@@ -183,7 +183,7 @@ using Microsoft.AspNetCore.Components.Rendering;
         __builder.CloseElement();
         __builder.AddMarkupContent(16, "\r\n");
 #nullable restore
-#line 43 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimentionalListComponent.razor"
+#line 43 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
                         }
                         else
                         {
@@ -195,7 +195,7 @@ using Microsoft.AspNetCore.Components.Rendering;
         __builder.OpenElement(18, "label");
         __builder.AddContent(19, 
 #nullable restore
-#line 46 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimentionalListComponent.razor"
+#line 46 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
                                     i.Name
 
 #line default
@@ -205,7 +205,7 @@ using Microsoft.AspNetCore.Components.Rendering;
         __builder.AddContent(20, ": ");
         __builder.AddContent(21, 
 #nullable restore
-#line 46 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimentionalListComponent.razor"
+#line 46 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
                                              i.Data
 
 #line default
@@ -215,7 +215,7 @@ using Microsoft.AspNetCore.Components.Rendering;
         __builder.CloseElement();
         __builder.AddMarkupContent(22, "\r\n");
 #nullable restore
-#line 47 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimentionalListComponent.razor"
+#line 47 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
                         }
 
 #line default
@@ -227,10 +227,10 @@ using Microsoft.AspNetCore.Components.Rendering;
         __builder.CloseElement();
         __builder.AddMarkupContent(26, "\r\n");
 #nullable restore
-#line 51 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimentionalListComponent.razor"
+#line 51 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
                      if (i.IsOpen)
                     {
-                        RecoursiveListRender(__builder, i.LowerDimentionList);
+                        RecoursiveListRender(__builder, i.LowerDimensionList);
                     }
 
 #line default
@@ -240,7 +240,7 @@ using Microsoft.AspNetCore.Components.Rendering;
         __builder.CloseElement();
         __builder.AddMarkupContent(28, "\r\n");
 #nullable restore
-#line 56 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimentionalListComponent.razor"
+#line 56 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
             }
 
 #line default
@@ -250,7 +250,7 @@ using Microsoft.AspNetCore.Components.Rendering;
         __builder.CloseElement();
         __builder.AddMarkupContent(30, "\r\n");
 #nullable restore
-#line 58 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimentionalListComponent.razor"
+#line 58 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
     }
 
 
@@ -270,13 +270,13 @@ using Microsoft.AspNetCore.Components.Rendering;
 
     public void Dispose()
     {
-        MultiDimentionalListService.OnChange -= StateHasChanged;
+        MultiDimensionalListService.OnChange -= StateHasChanged;
     }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IMultiDimentionalListService MultiDimentionalListService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IMultiDimensionalListService MultiDimensionalListService { get; set; }
     }
 }
 #pragma warning restore 1591

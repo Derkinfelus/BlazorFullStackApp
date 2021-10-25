@@ -6,7 +6,7 @@ using BlazorFullStackApp.Shared;
 
 namespace BlazorFullStackApp.Client.Services
 {
-    interface ITwoDimentionalListService
+    interface ITwodimensionalListService
     {
         event Action OnChange;
         Dictionary<string, List<ListElement>> ListOfElements { get; set; }
