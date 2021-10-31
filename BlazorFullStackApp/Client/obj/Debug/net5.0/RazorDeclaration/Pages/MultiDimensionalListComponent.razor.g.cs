@@ -96,13 +96,6 @@ using BlazorFullStackApp.Shared;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 4 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
-using Microsoft.AspNetCore.Components.Rendering;
-
-#line default
-#line hidden
-#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/MultiDimensionalList")]
     public partial class MultiDimensionalListComponent : Microsoft.AspNetCore.Components.ComponentBase, IDisposable
     {
@@ -112,159 +105,24 @@ using Microsoft.AspNetCore.Components.Rendering;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 20 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
+#line 27 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
        
-    OpenableMultiDimensionalList transporter = new OpenableMultiDimensionalList();
-    int id = -1;
+    public OpenableMultiDimensionalList elemToEdit = new OpenableMultiDimensionalList
+    {
+        Id = -1,
+        Name = "nothing",
+        Data = 0,
+        IsOpen = false,
+        ParrentId = 0,
+        LowerDimensionList = new List<OpenableMultiDimensionalList>()
+    };
+    public int elemToEditId;
 
     protected override async Task OnInitializedAsync()
     {
         MultiDimensionalListService.OnChange += StateHasChanged;
-        if (MultiDimensionalListService.ListOfElements.Count == 0)
-            await MultiDimensionalListService.GetList();
-    }
-
-
-    void RecoursiveListRender(RenderTreeBuilder __builder, List<OpenableMultiDimensionalList> lowerDimensionList)
-    {
-
-#line default
-#line hidden
-#nullable disable
-        __builder.AddContent(0, "        ");
-        __builder.OpenElement(1, "ul");
-        __builder.AddMarkupContent(2, "\r\n");
-#nullable restore
-#line 35 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
-             foreach (var i in lowerDimensionList)
-            {
-
-#line default
-#line hidden
-#nullable disable
-        __builder.AddContent(3, "                ");
-        __builder.OpenElement(4, "li");
-        __builder.AddMarkupContent(5, "\r\n                    ");
-        __builder.OpenElement(6, "span");
-        __builder.AddMarkupContent(7, "\r\n");
-#nullable restore
-#line 39 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
-                         if (i.LowerDimensionList.Count != 0)
-                        {
-
-#line default
-#line hidden
-#nullable disable
-        __builder.AddContent(8, "                            ");
-        __builder.OpenElement(9, "button");
-        __builder.AddAttribute(10, "@onclick", "(() => i.IsOpen = !i.IsOpen)");
-        __builder.AddAttribute(11, "class", "btn btn-primary");
-        __builder.AddContent(12, 
-#nullable restore
-#line 41 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
-                                                                                                     ListStatus(i.IsOpen)
-
-#line default
-#line hidden
-#nullable disable
-        );
-        __builder.CloseElement();
-        __builder.AddMarkupContent(13, "\r\n                            ");
-        __builder.OpenElement(14, "label");
-        __builder.AddContent(15, 
-#nullable restore
-#line 42 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
-                                    i.Name
-
-#line default
-#line hidden
-#nullable disable
-        );
-        __builder.CloseElement();
-        __builder.AddMarkupContent(16, "\r\n");
-#nullable restore
-#line 43 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
-                        }
-                        else
-                        {
-
-#line default
-#line hidden
-#nullable disable
-        __builder.AddContent(17, "                            ");
-        __builder.OpenElement(18, "label");
-        __builder.AddContent(19, 
-#nullable restore
-#line 46 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
-                                    i.Name
-
-#line default
-#line hidden
-#nullable disable
-        );
-        __builder.AddContent(20, ": ");
-        __builder.AddContent(21, 
-#nullable restore
-#line 46 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
-                                             i.Data
-
-#line default
-#line hidden
-#nullable disable
-        );
-        __builder.CloseElement();
-        __builder.AddMarkupContent(22, "\r\n");
-#nullable restore
-#line 47 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
-                        }
-
-#line default
-#line hidden
-#nullable disable
-        __builder.AddContent(23, "                        ");
-        __builder.AddMarkupContent(24, "<button @onclick=\"(() => transporter = i)\" class=\"btn btn-primary btn-dark\">Edit</button>\r\n                        ");
-        __builder.AddMarkupContent(25, "<button @onclick=\"(() => transporter = new OpenableMultiDimensionalList { Id = -1 })\">Add new element</button>\r\n                    ");
-        __builder.CloseElement();
-        __builder.AddMarkupContent(26, "\r\n");
-#nullable restore
-#line 51 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
-                     if (i.IsOpen)
-                    {
-                        RecoursiveListRender(__builder, i.LowerDimensionList);
-                    }
-
-#line default
-#line hidden
-#nullable disable
-        __builder.AddContent(27, "                ");
-        __builder.CloseElement();
-        __builder.AddMarkupContent(28, "\r\n");
-#nullable restore
-#line 56 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
-            }
-
-#line default
-#line hidden
-#nullable disable
-        __builder.AddContent(29, "        ");
-        __builder.CloseElement();
-        __builder.AddMarkupContent(30, "\r\n");
-#nullable restore
-#line 58 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
-    }
-
-
-    public string ListStatus(bool isOpen)
-    {
-        if (isOpen)
-            return "Hide";
-        else
-            return "Show";
-    }
-
-
-    public void AddElement(OpenableMultiDimensionalList elem)
-    {
+        if (MultiDimensionalListService.HightestDimensionElement == null)
+            await MultiDimensionalListService.GetHightestDimensionElement();
     }
 
 

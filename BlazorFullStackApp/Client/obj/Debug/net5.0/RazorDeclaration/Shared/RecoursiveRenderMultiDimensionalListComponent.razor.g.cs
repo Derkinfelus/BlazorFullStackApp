@@ -96,7 +96,7 @@ using BlazorFullStackApp.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class MultiDimentionalListManagementComponent : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class RecoursiveRenderMultiDimensionalListComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -104,25 +104,24 @@ using BlazorFullStackApp.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 27 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Shared\MultiDimentionalListManagementComponent.razor"
+#line 27 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Shared\RecoursiveRenderMultiDimensionalListComponent.razor"
        
     [Parameter]
-    public OpenableMultiDimensionalList transporterToEdit { get; set; } = new OpenableMultiDimensionalList();
-    [Parameter]
-    public int id { get; set; } = new int();
+    public OpenableMultiDimensionalList lst { get; set; } = new OpenableMultiDimensionalList();
 
-    async void OnEditFormSubmit()
-    {
-        if (transporterToEdit.Id == -1)
-            await MultiDimentionalListService.PostElement(id, transporterToEdit);
-        else
 
-    }
+        public string ListStatus(bool isOpen)
+        {
+            if (isOpen)
+                return "Hide";
+            else
+                return "Show";
+        }
+    
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IMultiDimentionalListService MultiDimentionalListService { get; set; }
     }
 }
 #pragma warning restore 1591

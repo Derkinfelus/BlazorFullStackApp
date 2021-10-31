@@ -104,6 +104,19 @@ using BlazorFullStackApp.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 24 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\Index.razor"
+ 
+    OpenableMultiDimensionalList tmp = new OpenableMultiDimensionalList();
+    List<OpenableMultiDimensionalList> tmpLst = new List<OpenableMultiDimensionalList> {
+        new OpenableMultiDimensionalList { Data = 0, Name = "1" },
+        new OpenableMultiDimensionalList { Data = 1, Name = "2" },
+        new OpenableMultiDimensionalList { Data = 2, Name = "3" }
+    };
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

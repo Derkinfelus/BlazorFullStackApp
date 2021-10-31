@@ -12,5 +12,6 @@ namespace BlazorFullStackApp.Client.Services
         OpenableMultiDimensionalList HightestDimensionElement { get; set; }
         Task GetHightestDimensionElement();
         Task PostElement(OpenableMultiDimensionalList element);
+        Task PutElement(OpenableMultiDimensionalList element);
     }
 }

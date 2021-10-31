@@ -107,16 +107,18 @@ using BlazorFullStackApp.Shared;
 #line 27 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Shared\MultiDimensionalListManagementComponent.razor"
        
     [Parameter]
-    public OpenableMultiDimensionalList transporterToEdit { get; set; } = new OpenableMultiDimensionalList();
-    [Parameter]
-    public int id { get; set; } = new int();
+    public OpenableMultiDimensionalList elemToEdit { get; set; } = new OpenableMultiDimensionalList();
 
     async void OnEditFormSubmit()
     {
-        if (transporterToEdit.Id == -1)
-            await MultiDimensionalListService.PostElement(id, transporterToEdit);
+        if (elemToEdit.Id == -1)
+        {
+            await MultiDimensionalListService.PostElement(elemToEdit);
+        }
         else
-
+        {
+            await MultiDimensionalListService.PutElement(elemToEdit);
+        }
     }
 
 #line default

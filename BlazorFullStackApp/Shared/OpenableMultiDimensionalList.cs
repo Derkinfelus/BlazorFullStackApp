@@ -24,7 +24,7 @@ namespace BlazorFullStackApp.Shared
                 }
                 foreach (var i in lowerDimensionList)
                 {
-                    var tmp = new MultiDimensionalList { LowerDimensionList = new List<MultiDimensionalList>(), Id = i.Id, Name = i.Name, Data = i.Data };
+                    var tmp = new MultiDimensionalList { LowerDimensionList = new List<MultiDimensionalList>(), ParrentId = i.ParrentId, Id = i.Id, Name = i.Name, Data = i.Data };
                     result.Add(tmp);
                     await RecoursiveTransormList(i.LowerDimensionList, tmp.LowerDimensionList);
                 }

@@ -25,7 +25,7 @@ namespace BlazorFullStackApp.Shared
                 {
                     var tmp = new OpenableMultiDimensionalList
                     {
-                        LowerDimensionList = new List<OpenableMultiDimensionalList>(), ParrentId = this.ParrentId, Id = i.Id, Name = i.Name, Data = i.Data, IsOpen = false
+                        LowerDimensionList = new List<OpenableMultiDimensionalList>(), ParrentId = i.ParrentId, Id = i.Id, Name = i.Name, Data = i.Data, IsOpen = false
                     };
                     result.Add(tmp);
                     await RecoursiveTransormList(i.LowerDimensionList, tmp.LowerDimensionList);

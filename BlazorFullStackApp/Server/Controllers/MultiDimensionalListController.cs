@@ -55,5 +55,14 @@ namespace BlazorFullStackApp.Server.Controllers
 
             return Ok(element.Id);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> PutElement(MultiDimensionalList element)
+        {
+            var tmp = await HightestDimensionElement.FindElement(element.Id);
+            tmp = element;
+
+            return Ok();
+        }
     }
 }

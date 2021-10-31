@@ -1,0 +1,39 @@
+﻿<ul>
+    <li>
+        @if (lst.LowerDimensionList.Count == 0)
+        {
+            <label>@lst.Name: @lst.Data</label>
+        }
+        else
+        {
+            <button @onclick="(() => lst.IsOpen = !lst.IsOpen)" class="btn btn-primary">@ListStatus(lst.IsOpen)</button>
+            <label>@lst.Name</label>
+        }
+        <button class="btn btn-primary">Edit</button>
+        <label>To add</label>
+        <InputRadio Value="lst.ParrentId"></InputRadio>
+        @foreach (var i in lst.LowerDimensionList)
+        {
+            if (lst.IsOpen)
+            {
+                <RecoursiveRenderMultiDimensionalListComponent lst="i"></RecoursiveRenderMultiDimensionalListComponent>
+            }
+
+        }
+    </li>
+</ul>
+
+
+@code {
+    [Parameter]
+    public OpenableMultiDimensionalList lst { get; set; } = new OpenableMultiDimensionalList();
+
+
+        public string ListStatus(bool isOpen)
+        {
+            if (isOpen)
+                return "Hide";
+            else
+                return "Show";
+        }
+    }

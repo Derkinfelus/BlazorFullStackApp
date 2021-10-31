@@ -10,7 +10,7 @@ namespace BlazorFullStackApp.Client.Services
 {
     public class MultiDimensionalListService : IMultiDimensionalListService
     {
-        public OpenableMultiDimensionalList HightestDimensionElement { get; set; } = new OpenableMultiDimensionalList();
+        public OpenableMultiDimensionalList HightestDimensionElement { get; set; }
         public int MaxId { get; set; } = new int();
         private readonly HttpClient _HttpClient;
 
@@ -30,10 +30,17 @@ namespace BlazorFullStackApp.Client.Services
             OnChange.Invoke();
         }
 
+        public async Task PutElement(OpenableMultiDimensionalList element)
+        {
+            await _HttpClient.PutAsJsonAsync($"api/MultiDimensionalList", await element.TransformElement());
+
+            OnChange.Invoke();
+        }
+
         public async Task GetHightestDimensionElement()
         {
             HightestDimensionElement = await (await _HttpClient.GetFromJsonAsync<MultiDimensionalList>($"api/MultiDimensionalList")).TransformElement();
-
+            HightestDimensionElement.IsOpen = true;
 
             OnChange.Invoke();
         }

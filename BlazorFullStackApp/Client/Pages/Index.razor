@@ -5,3 +5,27 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+<EditForm Model="tmp">
+    <InputRadioGroup @bind-Value="tmp.Name">
+        @foreach (var i in tmpLst)
+        {
+            <InputRadio @onactivate="(() => tmp = i)" Value="i.Name" @onclick="(() => tmp = i)"></InputRadio>
+        }
+    </InputRadioGroup>
+</EditForm>
+
+
+@tmp.Data
+@tmp.Name
+
+
+@code
+{
+    OpenableMultiDimensionalList tmp = new OpenableMultiDimensionalList();
+    List<OpenableMultiDimensionalList> tmpLst = new List<OpenableMultiDimensionalList> {
+        new OpenableMultiDimensionalList { Data = 0, Name = "1" },
+        new OpenableMultiDimensionalList { Data = 1, Name = "2" },
+        new OpenableMultiDimensionalList { Data = 2, Name = "3" }
+    };
+}
