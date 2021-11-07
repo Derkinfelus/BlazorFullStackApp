@@ -97,7 +97,7 @@ using BlazorFullStackApp.Shared;
 #line hidden
 #nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
-    public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class Index : Microsoft.AspNetCore.Components.ComponentBase, IDisposable
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -107,16 +107,35 @@ using BlazorFullStackApp.Shared;
 #nullable restore
 #line 24 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\Index.razor"
  
-    OpenableMultiDimensionalList tmp = new OpenableMultiDimensionalList();
-    List<OpenableMultiDimensionalList> tmpLst = new List<OpenableMultiDimensionalList> {
-        new OpenableMultiDimensionalList { Data = 0, Name = "1" },
-        new OpenableMultiDimensionalList { Data = 1, Name = "2" },
-        new OpenableMultiDimensionalList { Data = 2, Name = "3" }
+    public OpenableMultiDimensionalList toEdit = new OpenableMultiDimensionalList
+    {
+        Id = -1,
+        Name = "",
+        Data = 0,
+        IsOpen = false,
+        ParrentId = 0,
+        LowerDimensionList = new List<OpenableMultiDimensionalList>()
     };
+
+    public OpenableMultiDimensionalList tmp = new OpenableMultiDimensionalList();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        MultiDimensionalListService.OnChange += StateHasChanged;
+        if (MultiDimensionalListService.HightestDimensionElement == null)
+            await MultiDimensionalListService.GetHightestDimensionElement();
+    }
+
+    public void Dispose()
+    {
+        MultiDimensionalListService.OnChange -= StateHasChanged;
+    }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IMultiDimensionalListService MultiDimensionalListService { get; set; }
     }
 }
 #pragma warning restore 1591

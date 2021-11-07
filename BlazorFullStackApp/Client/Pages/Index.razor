@@ -1,31 +1,49 @@
 ﻿@page "/"
+@inject IMultiDimensionalListService MultiDimensionalListService
+@implements IDisposable
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?" />
 
-<EditForm Model="tmp">
-    <InputRadioGroup @bind-Value="tmp.Name">
-        @foreach (var i in tmpLst)
-        {
-            <InputRadio @onactivate="(() => tmp = i)" Value="i.Name" @onclick="(() => tmp = i)"></InputRadio>
-        }
-    </InputRadioGroup>
-</EditForm>
-
-
-@tmp.Data
-@tmp.Name
+@if (MultiDimensionalListService.HightestDimensionElement != null)
+{
+    <EditForm Model="tmp">
+        <InputRadioGroup @bind-Value="toEdit">
+            @foreach (var i in MultiDimensionalListService.HightestDimensionElement.LowerDimensionList)
+            {
+                <InputRadio Value="i"></InputRadio>
+            }
+        </InputRadioGroup>
+    </EditForm>
+}
 
 
 @code
 {
-    OpenableMultiDimensionalList tmp = new OpenableMultiDimensionalList();
-    List<OpenableMultiDimensionalList> tmpLst = new List<OpenableMultiDimensionalList> {
-        new OpenableMultiDimensionalList { Data = 0, Name = "1" },
-        new OpenableMultiDimensionalList { Data = 1, Name = "2" },
-        new OpenableMultiDimensionalList { Data = 2, Name = "3" }
+    public OpenableMultiDimensionalList toEdit = new OpenableMultiDimensionalList
+    {
+        Id = -1,
+        Name = "",
+        Data = 0,
+        IsOpen = false,
+        ParrentId = 0,
+        LowerDimensionList = new List<OpenableMultiDimensionalList>()
     };
+
+    public OpenableMultiDimensionalList tmp = new OpenableMultiDimensionalList();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        MultiDimensionalListService.OnChange += StateHasChanged;
+        if (MultiDimensionalListService.HightestDimensionElement == null)
+            await MultiDimensionalListService.GetHightestDimensionElement();
+    }
+
+    public void Dispose()
+    {
+        MultiDimensionalListService.OnChange -= StateHasChanged;
+    }
 }

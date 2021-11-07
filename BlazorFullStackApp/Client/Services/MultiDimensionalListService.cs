@@ -23,9 +23,24 @@ namespace BlazorFullStackApp.Client.Services
 
         public async Task PostElement(OpenableMultiDimensionalList element)
         {
-            var tmp = await _HttpClient.PostAsJsonAsync($"api/MultiDimensionalList", await element.TransformElement());
-            element.Id = await tmp.Content.ReadFromJsonAsync<int>();
-            (await HightestDimensionElement.FindElement(element.ParrentId)).LowerDimensionList.Add(element);
+            var result = await _HttpClient.PostAsJsonAsync($"api/MultiDimensionalList", await element.TransformElement());
+            element.Id = await result.Content.ReadFromJsonAsync<int>();
+            OpenableMultiDimensionalList toAdd = new OpenableMultiDimensionalList
+            {
+                Id = element.Id,
+                ParrentId = element.ParrentId,
+                IsOpen = element.IsOpen,
+                Data = element.Data,
+                Name = element.Name,
+                LowerDimensionList = element.LowerDimensionList
+            };
+            element.Id = -1;
+            element.Name = "";
+            element.Data = 0;
+
+            var parrent = await HightestDimensionElement.FindElement(element.ParrentId);
+            parrent.IsOpen = true;
+            parrent.LowerDimensionList.Add(toAdd);
 
             OnChange.Invoke();
         }

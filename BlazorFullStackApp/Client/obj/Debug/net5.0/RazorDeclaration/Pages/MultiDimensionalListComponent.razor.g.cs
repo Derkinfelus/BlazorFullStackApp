@@ -110,13 +110,13 @@ using BlazorFullStackApp.Shared;
     public OpenableMultiDimensionalList elemToEdit = new OpenableMultiDimensionalList
     {
         Id = -1,
-        Name = "nothing",
+        Name = "",
         Data = 0,
         IsOpen = false,
         ParrentId = 0,
         LowerDimensionList = new List<OpenableMultiDimensionalList>()
     };
-    public int elemToEditId;
+    public int ParrentId = 1;
 
     protected override async Task OnInitializedAsync()
     {

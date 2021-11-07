@@ -50,7 +50,9 @@ namespace BlazorFullStackApp.Shared
                 }
                 foreach (var i in element.LowerDimensionList)
                 {
-                    await RecoursiveFindElement(i);
+                    var tmp = await RecoursiveFindElement(i);
+                    if (tmp != null)
+                        return tmp;
                 }
 
                 return null;
@@ -58,5 +60,10 @@ namespace BlazorFullStackApp.Shared
 
             return await RecoursiveFindElement(this);
         }
+        public override string ToString()
+        {
+            return Id.ToString();
+        }
+        public 
     }
 }

@@ -104,20 +104,39 @@ using BlazorFullStackApp.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 27 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Shared\RecoursiveRenderMultiDimensionalListComponent.razor"
+#line 26 "C:\Users\Derkinfel\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Shared\RecoursiveRenderMultiDimensionalListComponent.razor"
        
     [Parameter]
-    public OpenableMultiDimensionalList lst { get; set; } = new OpenableMultiDimensionalList();
+    public OpenableMultiDimensionalList lst { get; set; }
+    [Parameter]
+    public OpenableMultiDimensionalList elemToEdit { get; set; }
+    [Parameter]
+    public EventCallback<OpenableMultiDimensionalList> elemToEditChanged { get; set; }
+    private OpenableMultiDimensionalList BoundValue
+    {
+        get => elemToEdit;
+        set => elemToEditChanged.InvokeAsync(value);
+    }
 
 
-        public string ListStatus(bool isOpen)
+    string ListStatus(bool isOpen)
+    {
+        if (isOpen)
+            return "Hide";
+        else
+            return "Show";
+    }
+
+
+    void OnAddClick(int parrentId)
+    {
+        BoundValue = new OpenableMultiDimensionalList
         {
-            if (isOpen)
-                return "Hide";
-            else
-                return "Show";
-        }
-    
+            ParrentId = parrentId,
+            Id = -1,
+            LowerDimensionList = new List<OpenableMultiDimensionalList>()
+        };
+    }
 
 #line default
 #line hidden

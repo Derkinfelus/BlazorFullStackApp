@@ -2,23 +2,22 @@
     <li>
         @if (lst.LowerDimensionList.Count == 0)
         {
-            <label>@lst.Name: @lst.Data</label>
+            <label>Id: @lst.Id, ParrentId = @lst.ParrentId, @lst.Name: @lst.Data</label>
         }
         else
         {
-            <button @onclick="(() => lst.IsOpen = !lst.IsOpen)" class="btn btn-primary">@ListStatus(lst.IsOpen)</button>
-            <label>@lst.Name</label>
+            <button @onclick="(() => lst.IsOpen = !lst.IsOpen)" class="btn-primary">@ListStatus(lst.IsOpen)</button>
+            <label>Id: @lst.Id, @lst.Name</label>
         }
-        <button class="btn btn-primary">Edit</button>
-        <label>To add</label>
-        <InputRadio Value="lst.ParrentId"></InputRadio>
+        <button class="btn btn-primary" @onclick="(() => BoundValue = lst)">Edit</button>
+        <label>To add     @lst.Id</label>
+        <InputRadio Value="lst.Id" @onclick="(() => OnAddClick(lst.Id))"></InputRadio>
         @foreach (var i in lst.LowerDimensionList)
         {
             if (lst.IsOpen)
             {
-                <RecoursiveRenderMultiDimensionalListComponent lst="i"></RecoursiveRenderMultiDimensionalListComponent>
+                <RecoursiveRenderMultiDimensionalListComponent lst="i" @bind-elemToEdit="BoundValue"></RecoursiveRenderMultiDimensionalListComponent>
             }
-
         }
     </li>
 </ul>
@@ -26,14 +25,34 @@
 
 @code {
     [Parameter]
-    public OpenableMultiDimensionalList lst { get; set; } = new OpenableMultiDimensionalList();
-
-
-        public string ListStatus(bool isOpen)
-        {
-            if (isOpen)
-                return "Hide";
-            else
-                return "Show";
-        }
+    public OpenableMultiDimensionalList lst { get; set; }
+    [Parameter]
+    public OpenableMultiDimensionalList elemToEdit { get; set; }
+    [Parameter]
+    public EventCallback<OpenableMultiDimensionalList> elemToEditChanged { get; set; }
+    private OpenableMultiDimensionalList BoundValue
+    {
+        get => elemToEdit;
+        set => elemToEditChanged.InvokeAsync(value);
     }
+
+
+    string ListStatus(bool isOpen)
+    {
+        if (isOpen)
+            return "Hide";
+        else
+            return "Show";
+    }
+
+
+    void OnAddClick(int parrentId)
+    {
+        BoundValue = new OpenableMultiDimensionalList
+        {
+            ParrentId = parrentId,
+            Id = -1,
+            LowerDimensionList = new List<OpenableMultiDimensionalList>()
+        };
+    }
+}

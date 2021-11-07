@@ -1,16 +1,56 @@
-﻿@page "/counter"
+﻿<ul>
+    <li>
+        @if (lst.LowerDimensionList.Count == 0)
+        {
+            <label>Id: @lst.Id, ParrentId = @lst.ParrentId, @lst.Name: @lst.Data</label>
+        }
+        else
+        {
+            <button @onclick="(() => lst.IsOpen = !lst.IsOpen)" class="btn-primary">@ListStatus(lst.IsOpen)</button>
+            <label>Id: @lst.Id, @lst.Name</label>
+        }
+        <button class="btn btn-primary" @onclick="(() => BoundValue = lst)">Edit</button>
+        @foreach (var i in lst.LowerDimensionList)
+        {
+            if (lst.IsOpen)
+            {
+                <Counter lst="i" @bind-elemToEdit="BoundValue"></Counter>
+            }
+        }
+    </li>
+</ul>
 
-<h1>Counter</h1>
-
-<p>Current count: @currentCount</p>
-
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    private int currentCount = 0;
-
-    private void IncrementCount()
+    [Parameter]
+    public OpenableMultiDimensionalList lst { get; set; }
+    [Parameter]
+    public OpenableMultiDimensionalList elemToEdit { get; set; }
+    [Parameter]
+    public EventCallback<OpenableMultiDimensionalList> elemToEditChanged { get; set; }
+    private OpenableMultiDimensionalList BoundValue
     {
-        currentCount++;
+        get => elemToEdit;
+        set => elemToEditChanged.InvokeAsync(value);
+    }
+
+
+    string ListStatus(bool isOpen)
+    {
+        if (isOpen)
+            return "Hide";
+        else
+            return "Show";
+    }
+
+
+    void OnAddClick()
+    {
+        elemToEdit.ParrentId = lst.Id;
+        elemToEdit.Id = -1;
+        elemToEdit.Name = "";
+        elemToEdit.Data = 0;
+        elemToEdit.IsOpen = false;
+        elemToEdit.LowerDimensionList = new List<OpenableMultiDimensionalList>();
     }
 }
