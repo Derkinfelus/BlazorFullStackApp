@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T6buxAfEIeajGRjja8eSPZntXijF2dP7MJwNnbI8bOL+FGis0bUuChLeeGpUaz4i7KVANua1oT1fk7M9QY6oFQ==",
+  "dgSpecHash": "b47RK5bsmsUdIeEpQm1DoKtHb1BQr44cbmDDRuHLlQx9qXcgioqXhumaLtwGxpyY8qC39nvlTfXvHL+c+SDemg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Derkinfel\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Shared\\BlazorFullStackApp.Shared.csproj",
+  "projectFilePath": "C:\\Users\\Derkin\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Shared\\BlazorFullStackApp.Shared.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

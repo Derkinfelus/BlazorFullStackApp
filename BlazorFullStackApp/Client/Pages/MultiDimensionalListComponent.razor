@@ -9,9 +9,11 @@
 }
 else
 {
-    <EditForm Model="ParrentId ">
-        <InputRadioGroup @bind-Value="ParrentId ">
-            <RecoursiveRenderMultiDimensionalListComponent lst="MultiDimensionalListService.HightestDimensionElement" @bind-elemToEdit="elemToEdit"></RecoursiveRenderMultiDimensionalListComponent>
+    <EditForm Model="@ParrentId">
+        <InputRadioGroup @bind-Value="@ParrentId">
+            <RecoursiveRenderMultiDimensionalListComponent lst="@MultiDimensionalListService.HightestDimensionElement" @bind-elemToEdit="@elemToEdit">
+
+            </RecoursiveRenderMultiDimensionalListComponent>
         </InputRadioGroup>
     </EditForm>
 }
@@ -34,7 +36,7 @@ else
         ParrentId = 0,
         LowerDimensionList = new List<OpenableMultiDimensionalList>()
     };
-    public int ParrentId = 1;
+    public int ParrentId = 0;
 
     protected override async Task OnInitializedAsync()
     {

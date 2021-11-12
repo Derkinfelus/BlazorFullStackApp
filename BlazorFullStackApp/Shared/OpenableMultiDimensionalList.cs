@@ -60,10 +60,5 @@ namespace BlazorFullStackApp.Shared
 
             return await RecoursiveFindElement(this);
         }
-        public override string ToString()
-        {
-            return Id.ToString();
-        }
-        public 
     }
 }

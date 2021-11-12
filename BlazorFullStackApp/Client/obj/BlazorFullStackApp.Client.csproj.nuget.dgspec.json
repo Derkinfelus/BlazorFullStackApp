@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Derkinfel\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Client\\BlazorFullStackApp.Client.csproj": {}
+    "C:\\Users\\Derkin\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Client\\BlazorFullStackApp.Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Derkinfel\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Client\\BlazorFullStackApp.Client.csproj": {
+    "C:\\Users\\Derkin\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Client\\BlazorFullStackApp.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Derkinfel\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Client\\BlazorFullStackApp.Client.csproj",
+        "projectUniqueName": "C:\\Users\\Derkin\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Client\\BlazorFullStackApp.Client.csproj",
         "projectName": "BlazorFullStackApp.Client",
-        "projectPath": "C:\\Users\\Derkinfel\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Client\\BlazorFullStackApp.Client.csproj",
-        "packagesPath": "C:\\Users\\Derkinfel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Derkinfel\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Client\\obj\\",
+        "projectPath": "C:\\Users\\Derkin\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Client\\BlazorFullStackApp.Client.csproj",
+        "packagesPath": "C:\\Users\\Derkin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Derkin\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Derkinfel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Derkin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -34,8 +32,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Derkinfel\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Shared\\BlazorFullStackApp.Shared.csproj": {
-                "projectPath": "C:\\Users\\Derkinfel\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Shared\\BlazorFullStackApp.Shared.csproj"
+              "C:\\Users\\Derkin\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Shared\\BlazorFullStackApp.Shared.csproj": {
+                "projectPath": "C:\\Users\\Derkin\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Shared\\BlazorFullStackApp.Shared.csproj"
               }
             }
           }
@@ -77,7 +75,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.browser-wasm",
-              "version": "[5.0.11, 5.0.11]"
+              "version": "[5.0.12, 5.0.12]"
             }
           ],
           "frameworkReferences": {
@@ -85,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -94,24 +92,22 @@
         }
       }
     },
-    "C:\\Users\\Derkinfel\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Shared\\BlazorFullStackApp.Shared.csproj": {
+    "C:\\Users\\Derkin\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Shared\\BlazorFullStackApp.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Derkinfel\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Shared\\BlazorFullStackApp.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Derkin\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Shared\\BlazorFullStackApp.Shared.csproj",
         "projectName": "BlazorFullStackApp.Shared",
-        "projectPath": "C:\\Users\\Derkinfel\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Shared\\BlazorFullStackApp.Shared.csproj",
-        "packagesPath": "C:\\Users\\Derkinfel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Derkinfel\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\Derkin\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Shared\\BlazorFullStackApp.Shared.csproj",
+        "packagesPath": "C:\\Users\\Derkin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Derkin\\source\\repos\\BlazorFullStackApp\\BlazorFullStackApp\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Derkinfel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Derkin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -150,7 +146,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -32,7 +32,7 @@ namespace BlazorFullStackApp.Client.Services
                 IsOpen = element.IsOpen,
                 Data = element.Data,
                 Name = element.Name,
-                LowerDimensionList = element.LowerDimensionList
+                LowerDimensionList = new List<OpenableMultiDimensionalList>(element.LowerDimensionList)
             };
             element.Id = -1;
             element.Name = "";
