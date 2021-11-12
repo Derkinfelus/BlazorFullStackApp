@@ -119,26 +119,23 @@ using BlazorFullStackApp.Shared;
     }
 
 
+    void ChangeElemToEdit()
+    {
+        BoundValue = new OpenableMultiDimensionalList
+        {
+            Id = -1,
+            ParrentId = lst.Id,
+            LowerDimensionList = new List<OpenableMultiDimensionalList>()
+        };
+    }
+
+
     string ListStatus(bool isOpen)
     {
         if (isOpen)
             return "Hide";
         else
             return "Show";
-    }
-
-
-    async Task OnAddClick(int parrentId)
-    {
-        var tmp = new OpenableMultiDimensionalList
-        {
-            ParrentId = parrentId,
-            Id = -1,
-            LowerDimensionList = new List<OpenableMultiDimensionalList>()
-        };
-        await elemToEditChanged.InvokeAsync(tmp);
-
-        elemToEdit.Id = -1;
     }
 
 #line default

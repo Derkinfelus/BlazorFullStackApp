@@ -105,7 +105,7 @@ using BlazorFullStackApp.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 29 "C:\Users\Derkin\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
+#line 28 "C:\Users\Derkin\source\repos\BlazorFullStackApp\BlazorFullStackApp\Client\Pages\MultiDimensionalListComponent.razor"
        
     public OpenableMultiDimensionalList elemToEdit = new OpenableMultiDimensionalList
     {
@@ -116,7 +116,7 @@ using BlazorFullStackApp.Shared;
         ParrentId = 0,
         LowerDimensionList = new List<OpenableMultiDimensionalList>()
     };
-    public int ParrentId = 0;
+
 
     protected override async Task OnInitializedAsync()
     {
